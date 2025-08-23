@@ -17,7 +17,7 @@
     </table>
 @endif
 
-{{-- -------------------- All users/group list -------------------- --}}
+{{-- -------------------- All users/group list d-------------------- --}}
 @if($get == 'users')
 <table class="messenger-list-item" data-contact="{{ $user->id }}">
     <tr data-action="0">
@@ -27,7 +27,7 @@
                 <span class="activeStatus"></span>
             @endif
         <div class="avatar av-m"
-        style="background-image: url({{ asset('storage/users-avatar/{{ $user->avatar }}') }});">
+        style="background-image: url('{{ asset('storage/users-avatar/' . $user->avatar) }}');">
         </div>
         </td>
         {{-- center side --}}
@@ -68,7 +68,7 @@
         {{-- Avatar side --}}
         <td> 
         <div class="avatar av-m"
-        style="background-image: url({{ asset('storage/users-avatar/{{ $user->avatar }}') }});">
+        style="background-image: url('{{ asset('storage/users-avatar/' . $user->avatar) }}');">
         </div>
         </td>
         {{-- center side --}}
