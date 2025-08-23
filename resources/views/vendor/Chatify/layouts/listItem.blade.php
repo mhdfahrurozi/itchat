@@ -27,7 +27,7 @@
                 <span class="activeStatus"></span>
             @endif
         <div class="avatar av-m"
-        style="background-image: url('{{ $user->avatar }}');">
+        style="background-image: url({{ asset('storage/users-avatar/{{ $user->avatar }}') }});">
         </div>
         </td>
         {{-- center side --}}
@@ -66,9 +66,9 @@
 <table class="messenger-list-item" data-contact="{{ $user->id }}">
     <tr data-action="0">
         {{-- Avatar side --}}
-        <td>
+        <td> 
         <div class="avatar av-m"
-        style="background-image: url('{{ $user->avatar }}');">
+        style="background-image: url({{ asset('storage/users-avatar/{{ $user->avatar }}') }});">
         </div>
         </td>
         {{-- center side --}}
