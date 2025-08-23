@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MessagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,4 @@ Route::get('/home', function () {
 
 Route::get('/admin-config', [App\Http\Controllers\AdminController::class, 'index'])->middleware('admin');
 Route::post('/update-ip', [App\Http\Controllers\AdminController::class, 'update'])->middleware('admin');
+Route::get('/chatify/{id?}', [MessagesController::class, 'index'])->name('chatify');
