@@ -25,6 +25,11 @@ Route::get('/home', function () {
     return redirect('/chatify');
 });
 
+Route::get('/chatify', function () {
+    return view('Chatify::pages.app', ['type' => 'user']);
+});
+
+
 Route::get('/admin-config', [App\Http\Controllers\AdminController::class, 'index'])->middleware('admin');
 Route::post('/update-ip', [App\Http\Controllers\AdminController::class, 'update'])->middleware('admin');
-Route::get('/chatify/{id?}', [MessagesController::class, 'index'])->name('chatify');
+
