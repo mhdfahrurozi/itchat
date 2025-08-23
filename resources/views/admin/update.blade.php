@@ -1,6 +1,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <title>IP - Configuration</title>
   <link rel="stylesheet" type="text/css" href="{{ asset('css') }}/style.css">
   <style>
