@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: laravel_chat_app
+    ports:
+      - "8002:8000"  # Port bebas (beda dengan project sebelumnya)
+    volumes:
+      - .:/var/www/html
+      - /var/www/html/vendor  # Isolasi vendor
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0  # Sesuai Laravel 9 recommendation
+    container_name: laravel_chat_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: laravel_at
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: secret
+    ports:
+      - "3308:3306"  # Port berbeda dari project lain
+    volumes:
+      - chat_db_data:/var/lib/mysql
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: laravel_chat_pma
+    depends_on:
+      - db
+    ports:
+      - "8082:80"  # Port berbeda
+    environment:
+      PMA_HOST: db
+      PMA_USER: laravel
+      PMA_PASSWORD: secret
+    restart: unless-stopped
+
+volumes:
+  chat_db_data:
