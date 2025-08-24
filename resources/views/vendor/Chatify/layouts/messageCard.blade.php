@@ -1,4 +1,8 @@
 {{-- -------------------- The default card (white) -------------------- --}}
+@php
+    $viewType = $viewType ?? 'default';
+@endphp
+
 @if($viewType == 'default')
     @if($from_id != $to_id)
     <div class="message-card" data-id="{{ $id }}">
